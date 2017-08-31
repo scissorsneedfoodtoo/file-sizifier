@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 const multer = require('multer')
 const upload = multer({ dest: 'public/uploads/'})
-const alert = require('alert-node')
+// const alert = require('alert-node')
 const fs = require('fs')
 const path = process.cwd()
 
@@ -12,27 +12,24 @@ router.get('/', function(req, res, next) {
 });
 
 /* POST file */
-// router.post('/', upload.single('choose-file'), function(req, res, next) {
-//   let filePath = req.file.path
-//
-//   alert('File Size: ' + req.file.size, 'window')
-//
-//   // delete file async
-//   fs.unlink(filePath, function(error) {
-//     if (error) {
-//       throw error
-//     }
-//     console.log('deleted ' + filePath)
-//   })
-//
-//   // rerender the landing page so another file can be checked
-//   res.render('index', { title: 'File Sizifier' });
-// })
+router.post('/', upload.single('choose-file'), function(req, res, next) {
+  let filePath = req.file.path
 
-router.post('/', upload.single('choose-file'), function(req, res) {
-  const fileSize = req.file.size
+  // alert('File Size: ' + req.file.size, 'window')
 
-  res.json({'File Size': fileSize})
+  // delete file async
+  fs.unlink(filePath, function(error) {
+    if (error) {
+      throw error
+    }
+    console.log('deleted ' + filePath)
+  })
+
+  // rerender the landing page so another file can be checked
+  // res.render('index', { title: 'File Sizifier' });
+  res.render('index', {
+    fileSize: req.file.size + ' bytes'
+  })
 })
 
 

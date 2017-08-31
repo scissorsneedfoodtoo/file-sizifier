@@ -14,3 +14,8 @@ block content
     form(method='post', enctype='multipart/form-data', id='upload-form')
       input(type='file', name='choose-file', id='file')
       input(type='submit', name='upload-file', value='Upload File')
+
+    br
+    blockquote
+      p
+        | File Size: #{fileSize}
