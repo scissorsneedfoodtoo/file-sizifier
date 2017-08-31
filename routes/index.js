@@ -28,7 +28,8 @@ router.post('/', upload.single('choose-file'), function(req, res, next) {
   // rerender the landing page so another file can be checked
   // res.render('index', { title: 'File Sizifier' });
   res.render('index', {
-    fileSize: req.file.size + ' bytes'
+    fileSize: req.file.size + ' bytes',
+    title: 'File Sizifier'
   })
 })
 
