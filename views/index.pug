@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  div(class='container')
+    h1(class='header') File Metadata Microservice
+    blockquote
+      p
+        | User Stories:
+      ul
+        | 1) I can submit a FormData object that includes a file upload.
+      ul
+        | 2) When I submit something, I will receive the file size in bytes within the JSON response
+
+    form(method='post', enctype='multipart/form-data')
+      input(type='file', name='choose-file')
+      input(type='submit', name='upload-file', value='Upload File')
