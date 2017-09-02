@@ -32,7 +32,7 @@ router.post('/', upload.single('choose-file'), function(req, res, next) {
     })
 
   } else {
-    outputObj.fileSize = 'There was an error reading your file. Please try again.'
+    outputObj.fileSize = 'There was a problem reading your file. Please try again.'
   }
 
   // rerender the page so another file can be checked
